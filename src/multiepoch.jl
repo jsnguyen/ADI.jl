@@ -4,11 +4,14 @@
 
 A wrapper to combine multiple epochs of data using any of the algorithms in HCI.jl. Each epoch is processed independently using the specified `corealg`, and the results are then combined using the specified `method`.
 
+To use this, you combine all of your epochs into a single cube and provide the sizes of each epoch in `epochsizes`. The algorithm will split the cube back into its epochs and operate the `corealg` on each epoch separately.
+
+`epochsizes` should be an array of integers corresponding to the number of frames in each epoch. You can also weight each epoch using the `weights` argument, which should be an array of the same length as `epochsizes`.
+
 This wrapper is of type `ADIAlgorithm`, so it can be used wherever an ADI algorithm is expected, such as `contrast_curve` or any of the other metrics.
 
 When using `contrast_curve` with `MultiEpoch`, you can't specify a template PSF for each epoch. A workaround is using the averaged PSF of all epochs. This isn't ideal, but should be a decent approximation for epochs with similar PSFs.
 
-Use the `corealg` algorithm to process multiple epochs of data, each of size given in `epochsizes`. `epochsizes` should be an array of integers corresponding to the number of frames in each epoch. You can also weight each epoch using the `weights` argument, which should be an array of the same length as `epochsizes`.
 
 """
 
