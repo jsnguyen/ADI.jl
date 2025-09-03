@@ -14,6 +14,7 @@ export reconstruct,
        process,
        Classic,
        LOCI,
+       MultiEpoch,
        PCA,
        GreeDS,
        NMF,
@@ -36,6 +37,7 @@ include("loci.jl")
 include("pca.jl")
 include("nmf.jl")
 include("greeds.jl")
+include("multiepoch.jl")
 
 # metrics
 include("metrics/Metrics.jl")
